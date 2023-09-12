@@ -1,0 +1,27 @@
+<div>
+    <c-modal id="liveDemoModal" [visible]="visible" (visibleChange)="handleLiveDemoChange($event)">
+        <c-modal-header>
+            <h5 cModalTitle>{{modelTitle}}</h5>
+            <button (click)="toggleLiveModel()" cButtonClose></button>
+        </c-modal-header>
+        <c-modal-body class="pb-0">{{modelBody}}
+
+            <div class="form-group mt-1">
+                <div>
+                    <textarea name="" id="" rows="5" class="form-control" [formControl]="confirmationTextFormControl"></textarea>
+                </div>
+            </div>
+            <div class="pt-4 ml-2">
+                <validation-message [abstractController]="confirmationTextFormControl" placeHolder="Confirmation Message">
+                </validation-message>
+            </div>
+        </c-modal-body>
+        <c-modal-footer>
+            <button (click)="toggleLiveModel()" class="btn btn-secondary">
+                {{btnCancelText}}
+            </button>
+            <button #confirmationModel class="btn btn-primary"
+                (click)="btnConfirmationAP()">{{btnConfirmationText}}</button>
+        </c-modal-footer>
+    </c-modal>
+</div>

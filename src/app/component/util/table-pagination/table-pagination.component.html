@@ -1,0 +1,32 @@
+<c-pagination align="end" aria-label="Table Pagination">
+
+    <li cPageItem [disabled]="currentPageNo === 0" title="First Page">
+        <a class="cursor-pointer" cPageLink [routerLink] (click)="arraySlice(0)">
+            <i class="fa fa-angle-double-left" aria-hidden="true"></i>
+        </a>
+    </li>
+
+    <li cPageItem [disabled]="currentPageNo === 0" title="Previous Page">
+        <a class="cursor-pointer" cPageLink [routerLink] (click)="arraySlice(currentPageNo-1)">
+            <i class="fa fa-angle-left" aria-hidden="true"></i>
+        </a>
+    </li>
+
+    <li cPageItem *ngFor="let i of getPaginationLength(); let idx = index;" title="{{idx+1}} Page"
+        [active]="idx === currentPageNo">
+        <a class="cursor-pointer" cPageLink [routerLink] (click)="arraySlice(idx)">{{idx+1}}</a>
+    </li>
+
+    <li cPageItem [disabled]="currentPageNo === (getPaginationLength().length-1) || !dataArray.length" title="Next Page">
+        <a class="cursor-pointer" cPageLink [routerLink] (click)="arraySlice(currentPageNo+1)">
+            <i class="fa fa-angle-right" aria-hidden="true"></i>
+        </a>
+    </li>
+
+    <li cPageItem [disabled]="currentPageNo === (getPaginationLength().length-1) || !dataArray.length" title="Last Page">
+        <a class="cursor-pointer" cPageLink [routerLink] (click)="arraySlice(getPaginationLength().length-1)">
+            <i class="fa fa-angle-double-right" aria-hidden="true"></i>
+        </a>
+    </li>
+
+</c-pagination>

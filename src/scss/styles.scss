@@ -1,0 +1,110 @@
+// Custom Theming for Angular Material
+// For more information: https://material.angular.io/guide/theming
+@use '@angular/material' as mat;
+// Plus imports for other components in your app.
+
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+// Be sure that you only ever include this mixin once!
+@include mat.core();
+/* You can add global styles to this file, and also import other style files */
+// If you want to override variables do it here
+@import "variables";
+
+$enable-ltr: true;
+$enable-rtl: true;
+
+// Import styles with default layout.
+@import "@coreui/coreui/scss/coreui";
+
+// Import Chart.js custom tooltips styles
+@import "@coreui/chartjs/scss/coreui-chartjs";
+
+@import "layout";
+
+// Some temp fixes
+@import "fixes";
+
+// Prism.js
+@import "examples";
+
+// If you want to add something do it here
+@import "custom";
+
+
+body {
+    user-select: none;
+  }
+  
+  .cursor-pointer {
+    cursor: pointer;
+  }
+  
+  .error-msg {
+    position: relative;
+    top: -1.5em;
+  }
+  
+  .display-none {
+    display: none;
+  }
+  
+  html,
+  body {
+    height: 100%;
+  }
+  
+  body {
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+  }
+
+  .buttonInfo {
+    color: black;
+    border: 3px solid orange;
+    padding: 4px 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+  }
+  
+  .buttonInfo:hover {
+    background-color: #F9B116;
+    color: white;
+  }
+  .text-right {
+    text-align: right;
+  }
+  
+  .w-tb-25 {
+    width: 25% !important;
+  }
+  
+  @media only screen and (max-width: 960px) {
+    .w-tb-25 {
+      width: 50% !important;
+    }
+  }
+  
+  .font-size-80 {
+    font-size: 0.80rem;
+  }
+  
+  .font-size-90 {
+    font-size: 0.90rem;
+  }
+  .font-size-95 {
+    font-size: 0.95rem;
+  }
+  
+  .font-size-100 {
+    font-size: 1rem !important;
+  }
+  .custom-modalbox {
+    mat-dialog-container {
+      overflow-wrap: break-word;
+    }
+  }
